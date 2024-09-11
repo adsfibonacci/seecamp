@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:dev.db"
+}
+
+model User {
+  id        Int          @id @default(autoincrement())
+  username  String       @unique
+  password  String
+  c1        Challenge1[]
+  c2        Challenge2[]
+  c3        Challenge3[]
+  c4        Challenge4[]
+  c5        Challenge5[]
+}
+
+model Challenge1 {
+  id       Int    @id @default(autoincrement())
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId Int
+  attempt  String
+}
+
+model Challenge2 {
+  id       Int    @id @default(autoincrement())
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId Int
+  attempt  String
+}
+
+model Challenge3 {
+  id       Int    @id @default(autoincrement())
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId Int
+  attempt  String
+}
+
+model Challenge4 {
+  id       Int    @id @default(autoincrement())
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId Int
+  attempt  String
+}
+
+model Challenge5 {
+  id       Int    @id @default(autoincrement())
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId Int
+  attempt  String
+}
